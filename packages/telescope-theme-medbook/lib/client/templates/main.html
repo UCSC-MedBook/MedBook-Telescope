@@ -3,7 +3,7 @@
     <h2 class="welcome-message">Welcome to MedBook!</h2>
 
 
-    <div id="tabs">
+    <div class="tabs" id="tabs">
         <ul class="ui-tabs-div" >
             <li><a href="#query">Query Data</a></li>
             <li><a href="#input">Input Data</a></li>
@@ -12,22 +12,39 @@
         </ul>
 
         <div id="query">
-        <!--
-         {{> UI.dynamic template=cbioquery }}
-            -->
-            <div class="queryarea">
-                Select cohorts: <select id="selection"> <option value="wcdt"> West Coast Dream Team</option> </select>
+
+            <div class="tabs" id="tabs2">
+                <ul class="ui-tabs-div" >
+                    <li><a href="#query1">Expression and Pathway  query1</a></li>
+                    <li><a href="#query2">Mutation and Pathway query2</a></li>
+                    <li><a href="#query3">Integrated Activity query3</a></li>
+                </ul>
+
+                <div id="query1">
+                    <div class="queryarea">
+                        Select cohorts: <select id="selection"> <option value="wcdt"> West Coast Dream Team</option> </select>
+                    </div>
+                    <div class="queryarea">
+                        Enter Genes or Clincal Phenotypes:
+                    </div>
+                    <div class="queryarea">
+                        See results as:
+                        <select id="selection">
+                        <option value="oncoprint">Oncoprint</option>
+                        <option value="oncoprint">Oncoprint</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="query2">
+
+                <iframe style=" overflow: hidden;width:800px; height:600px" src="http://su2c-dev.ucsc.edu:8383/cbioportal/medbook_query.do">
+                </iframe>
+                </div>
+                <div id="query3">
+                query3
+                </div>
             </div>
-            <div class="queryarea">
-                Enter Genes or Clincal Phenotypes:
-            </div>
-            <div class="queryarea">
-                See results as:
-                <select id="selection">
-                <option value="oncoprint">Oncoprint</option>
-                <option value="oncoprint">Oncoprint</option>
-                </select>
-            </div>
+
         </div>
 
         <div class="ui-tabs-div" id="input">
