@@ -13,7 +13,7 @@ if (Meteor.isClient) {
 
   Template.start.events({
     'click button.scv': function () {
-      Players.update(Session.get("selected_player"), {$inc: {score: 5}});
+      Datasets.update(Session.get("selectedDatasetId"), {$inc: {score: 5}});
     }
   });
 
