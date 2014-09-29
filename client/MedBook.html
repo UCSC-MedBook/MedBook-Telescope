@@ -1,0 +1,55 @@
+<head>
+  <title>MedBook</title>
+   <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+
+<body>
+ 	   <div class="container">
+	  	   <div class="row">
+			   	<div class="span4">
+		   		 	{{> start}}
+   				</div>
+				<div class="span4">
+		   		 
+				</div>
+	 	   	 	<div class="span4">
+
+				</div>
+			</div>
+		</div>	
+				
+</body>
+<template name="updateDatasetsForm">
+  <h2>Dataset</h2>
+	 
+</template>
+<template name="start">
+    <h1>Welcome to MedBook</h1>
+    {{> selectDataset}}<br>
+    {{> selectGroup}}
+    {{> selectGroup}}<br>
+	<button class="scv">View Contrast</button>
+</template>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="selectGroup">
+	<select class="span1-12">
+		<option value="N/A">Select Group</option>
+	    <option value="Small Cell">Small Cell</option>
+	    <option value="Adeno">Adeno</option>
+	</select>
+</template>
+
+<template name="selectDataset">
+	<select class="span1-12">
+		<option value="N/A">Select Dataset</option>
+	    <option value="WCDTv5">WCDT Batches 1-5</option>
+	    <option value="TCGA PRAD">TCGA PRAD</option>
+	    <option value="UCLA CD49">Witte cell sorted</option>
+	    <option value="UCLA NE">Witte paired Adeno/NE</option>
+   	</select>
+</template>
