@@ -12,6 +12,3 @@ window.change_crf_form_selection = function () {
     $("#" + $("#crf_form_selection").val()).show();
 }
 
-Template.MedBookMainPage.render = function () {
-    window.change_crf_form_selection();
-}
