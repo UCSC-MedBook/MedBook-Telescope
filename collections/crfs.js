@@ -659,6 +659,17 @@ for (x in CRFs) {
         window[x] = aCRFcollection;
     CRFs[x].aCRFschema = aCRFschema;
     aCRFcollection.attachSchema(aCRFschema);
+    aCRFcollection.allow({
+        insert: function(userId, lugar){
+            return true;
+        },
+        update: function(userId, lugares, fields, modifier){
+            return true;
+        },
+        remove: function (userId, docs){
+            return true;
+        }
+    });
 
 
     /*

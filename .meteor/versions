@@ -9,6 +9,7 @@ aldeed:autoform@2.0.2
 aldeed:collection2@2.1.0
 aldeed:simple-schema@1.0.3
 application-configuration@1.0.2
+autopublish@1.0.0
 autoupdate@1.1.1
 backbone@1.0.0
 base64@1.0.0
@@ -17,6 +18,22 @@ blaze-tools@1.0.0
 blaze@2.0.1
 boilerplate-generator@1.0.0
 callback-hook@1.0.0
+cfs:access-point@0.0.0
+cfs:base-package@0.0.0
+cfs:collection-filters@0.0.0
+cfs:collection@0.0.0
+cfs:data-man@0.0.0
+cfs:file@0.0.0
+cfs:http-methods@0.0.24
+cfs:http-publish@0.0.0
+cfs:power-queue@0.0.1
+cfs:reactive-list@0.0.0
+cfs:reactive-property@0.0.0
+cfs:standard-packages@0.0.2
+cfs:storage-adapter@0.0.0
+cfs:tempstore@0.0.2
+cfs:upload-http@0.0.2
+cfs:worker@0.0.0
 check@1.0.1
 chuangbo:marked@0.3.5
 cmather:handlebars-server@0.2.0
@@ -75,6 +92,7 @@ oauth@1.1.0
 observe-sequence@1.0.2
 ordered-dict@1.0.0
 percolatestudio:synced-cron@0.3.0
+raix:eventemitter@0.0.1
 rajit:bootstrap3-datepicker@1.3.1
 random@1.0.0
 reactive-dict@1.0.3
@@ -102,7 +120,6 @@ telescope-email@0.2.9
 telescope-i18n@0.0.0
 telescope-kadira@0.1.0
 telescope-lib@0.2.9
-telescope-medbook@0.0.0
 telescope-module-embedly@0.2.9
 telescope-module-share@0.0.0
 telescope-newsletter@0.1.0
@@ -113,6 +130,7 @@ telescope-static-pages@0.1.0
 telescope-tags@0.0.0
 telescope-theme-base@0.0.0
 telescope-theme-hubble@0.0.0
+telescope-theme-medbook@0.0.0
 telescope-update-prompt@0.1.0
 templating@1.0.7
 tmeasday:crypto-base@3.1.2

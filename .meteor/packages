@@ -75,5 +75,7 @@ mrt:jquery-ui
 mrt:jquery-ui-bootstrap
 aldeed:collection2
 aldeed:autoform
-telescope-medbook
+telescope-theme-medbook
+cfs:standard-packages
+autopublish
 
