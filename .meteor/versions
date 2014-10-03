@@ -102,6 +102,7 @@ telescope-email@0.2.9
 telescope-i18n@0.0.0
 telescope-kadira@0.1.0
 telescope-lib@0.2.9
+telescope-medbook@0.0.0
 telescope-module-embedly@0.2.9
 telescope-module-share@0.0.0
 telescope-newsletter@0.1.0
@@ -112,7 +113,6 @@ telescope-static-pages@0.1.0
 telescope-tags@0.0.0
 telescope-theme-base@0.0.0
 telescope-theme-hubble@0.0.0
-telescope-theme-medbook@0.0.0
 telescope-update-prompt@0.1.0
 templating@1.0.7
 tmeasday:crypto-base@3.1.2
