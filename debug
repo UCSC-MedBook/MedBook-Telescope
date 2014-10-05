@@ -1,0 +1,4 @@
+echo run node-inspector --web-port=5123
+NODE_OPTIONS='--debug' meteor run 
+
+
