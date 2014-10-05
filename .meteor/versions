@@ -90,6 +90,7 @@ oauth1@1.1.0
 oauth2@1.1.0
 oauth@1.1.0
 observe-sequence@1.0.2
+olragon:handsontable@0.11.3
 ordered-dict@1.0.0
 percolatestudio:synced-cron@0.3.0
 raix:eventemitter@0.0.1

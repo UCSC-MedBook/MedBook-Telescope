@@ -18,10 +18,89 @@ clinicalReportFormSchemaObject = SimpleSchema({
   },
 });
 
+MetadataPreferredFieldOrder = {};
+MetadataPreferredFieldOrder['PatientEnrollmentform']=[
+    "Baseline_Biopsy_Date",
+    "Baseline_Biopsy_Site",
+    "Institution",
+    "Patient_ID"];
+MetadataPreferredFieldOrder['TissueSpecimenform_Specimens']=[
+    "Box_ID",
+    "Core_Notes",
+    "Freezer",
+    "Tissue_Preparation",
+    "core"];
+MetadataPreferredFieldOrder['TissueSpecimenform']=[
+    "Attending_Radiologist",
+    "Biopsy_Site",
+    "CRC_at_Collection",
+    "Procedure_Date",
+    "Procedure_Site",
+    "Specimens",
+    "Timepoint"];
+MetadataPreferredFieldOrder['BloodSpecimenform']=[
+    "CRC_at_Collection",
+    "Draw_Date_and_Time",
+    "Patient_ID",
+    "Procedure_Site",
+    "Serum",
+    "Sodium_Heparin",
+    "Timepoint"];
+MetadataPreferredFieldOrder['TissuePreparationform_Specimen']=[
+    "Fixed_Histology",
+    "Frozen_Histology_(any_core)",
+    "Percent_Tumor",
+    "core"];
+MetadataPreferredFieldOrder['TissuePreparationform']=[
+    "Biopsy_Site",
+    "Institution",
+    "Patient_ID",
+    "Procedure_Date",
+    "Specimen"];
+MetadataPreferredFieldOrder['Pathologyform']=[
+    "AR-FISH_ratio",
+    "AR-FISH_result",
+    "AR-FISH_test_performed",
+    "CHGA_result",
+    "CHGA_test_performed",
+    "ION_Torrent_test_performed",
+    "PTEN-IHC_result",
+    "PTEN_test_performed",
+    "Patient_ID",
+    "Percent_Tumor_High",
+    "Percent_Tumor_low",
+    "Small_cell_morphology_core_call",
+    "biopsy_timepoint",
+    "core_analyzed_(only_for_frozen)",
+    "core_type"];
+MetadataPreferredFieldOrder['TreatmentHistory']=[
+    "Abiraterone",
+    "Biopsy_Site",
+    "Casodex",
+    "Docetaxel_Response",
+    "Duration_(days)",
+    "Enzaludimide",
+    "Institution",
+    "On_study_Treatment",
+    "Patient_ID",
+    "Primary_Hormone_Response",
+    "Reason_for_stopping",
+    "Surgical_Castration",
+    "Survival_(days)",
+    "core_analyzed"];
+MetadataPreferredFieldOrder['RNASeqcompletionform']=[
+    "LNCAP_control_source",
+    "Patient_ID",
+    "QC_reports",
+    "RIN_score_from_UCSF",
+    "date_completed",
+    "date_received",
+    "library_prep_notes",
+    "library_prep_used",
+    "location_of_fastq_file"];
 
-CRFs = {};
-
-CRFs['PatientEnrollmentform']=({
+MetadataPrototype = {};
+MetadataPrototype['PatientEnrollmentform']=({
     "Baseline_Biopsy_Date": {
 //        "capturetime": false,
         "label": "Baseline Biopsy Date",
@@ -63,7 +142,7 @@ CRFs['PatientEnrollmentform']=({
         type: String
     }
 } );
-CRFs['TissueSpecimenform_Specimens']=({
+MetadataPrototype['TissueSpecimenform_Specimens']=({
     "Box_ID": {
         "label": "Box ID",
         type: String
@@ -111,7 +190,7 @@ CRFs['TissueSpecimenform_Specimens']=({
         type: String
     }
 } );
-CRFs['TissueSpecimenform']=({
+MetadataPrototype['TissueSpecimenform']=({
     "Attending_Radiologist": {
         "label": "Attending Radiologist",
         type: String
@@ -156,7 +235,7 @@ CRFs['TissueSpecimenform']=({
     },
     "Specimens": {
         "label": "Specimens",
-        type: [CRFs["Tissue_Specimen_form_Specimens"]] // subdocument
+        type: [MetadataPrototype["Tissue_Specimen_form_Specimens"]] // subdocument
     },
     "Timepoint": {
         "allowedValues": [
@@ -170,7 +249,7 @@ CRFs['TissueSpecimenform']=({
         type: String
     }
 } );
-CRFs['BloodSpecimenform']=({
+MetadataPrototype['BloodSpecimenform']=({
     "CRC_at_Collection": {
         "label": "CRC at Collection",
         type: String
@@ -222,7 +301,7 @@ CRFs['BloodSpecimenform']=({
         type: String
     }
 } );
-CRFs['TissuePreparationform_Specimen']=({
+MetadataPrototype['TissuePreparationform_Specimen']=({
     "Fixed_Histology": {
         "allowedValues": [
             "Positive",
@@ -266,7 +345,7 @@ CRFs['TissuePreparationform_Specimen']=({
         type: String
     }
 } );
-CRFs['TissuePreparationform']=({
+MetadataPrototype['TissuePreparationform']=({
     "Biopsy_Site": {
         "allowedValues": [
             "Bone",
@@ -307,10 +386,10 @@ CRFs['TissuePreparationform']=({
     },
     "Specimen": {
         "label": "Specimen",
-        type: [CRFs["Tissue Preparation form_Specimen"]] // subdocument
+        type: [MetadataPrototype["Tissue Preparation form_Specimen"]] // subdocument
     }
 } );
-CRFs['Pathologyform']=({
+MetadataPrototype['Pathologyform']=({
     "AR-FISH_ratio": {
         "label": "AR-FISH ratio",
         type: Number
@@ -446,7 +525,7 @@ CRFs['Pathologyform']=({
         type: String
     }
 } );
-CRFs['TreatmentHistory']=({
+MetadataPrototype['TreatmentHistory']=({
     "Abiraterone": {
         "allowedValues": [ "Yes", "No" ],
         "label": "Abiraterone",
@@ -578,7 +657,7 @@ CRFs['TreatmentHistory']=({
         type: String
     }
 } );
-CRFs['RNASeqcompletionform']=({
+MetadataPrototype['RNASeqcompletionform']=({
     "LNCAP_control_source": {
         "label": "LNCAP control source",
         type: String
@@ -634,30 +713,30 @@ STATUS_PENDING=1;
 STATUS_APPROVED=2;
 STATUS_REJECTED=3;
 
-CRFmetadataCollection = new Meteor.Collection("crfsmetadatacollection");
+MetadataCollection = new Meteor.Collection("crfsmetadatacollection");
 if (Meteor.isServer) {
-    for (x in CRFs) {
-        console.log("CRF x", x);
-        var c = _.clone(CRFs[x]);
+    for (x in MetadataPrototype) {
+        console.log("MetadataPrototype x", x);
+        var c = _.clone(MetadataPrototype[x]);
         c._id = x;
         c.collection = x;
         try {
-            CRFmetadataCollection.upsert({_id:x}, c) 
+            MetadataCollection.upsert({_id:x}, c) 
         } catch (x) {
             console.log("upsert failed", x);
         }
     }
 }
 
-for (x in CRFs) {
+for (x in MetadataPrototype) {
     var aCRFcollection = new Meteor.Collection(x);
     console.log(x);
-    var aCRFschema = new SimpleSchema([clinicalReportFormSchemaObject, CRFs[x]]);
-    CRFs[x].aCRFformName = x;
-    CRFs[x].aCRFcollection = aCRFcollection;
+    var aCRFschema = new SimpleSchema([clinicalReportFormSchemaObject, MetadataPrototype[x]]);
+    MetadataPrototype[x].aCRFformName = x;
+    MetadataPrototype[x].aCRFcollection = aCRFcollection;
     if (Meteor.isClient)
         window[x] = aCRFcollection;
-    CRFs[x].aCRFschema = aCRFschema;
+    MetadataPrototype[x].aCRFschema = aCRFschema;
     aCRFcollection.attachSchema(aCRFschema);
     aCRFcollection.allow({
         insert: function(userId, lugar){
@@ -744,7 +823,7 @@ Meteor.methods({
         body = clinicalReportForm.body,
         userId = this.userId,
         user = Meteor.users.findOne(userId),
-        aCRFcollection = CRFs[clincalReportForm.formName].aCRFcollection,
+        aCRFcollection = MetadataPrototype[clincalReportForm.formName].aCRFcollection,
 
         timeSinceLastClinicalReportForm=timeSinceLast(user, aCRFcollection),
         numberOfaCRFcollectionInPast24Hours=numberOfItemsInPast24Hours(user, aCRFcollection),
@@ -865,14 +944,14 @@ Meteor.methods({
     if(isAdmin(Meteor.user()) && typeof customClinicalReportFormedAt !== 'undefined') // if user is admin and a custom datetime has been set
       clinicalReportFormedAt = customClinicalReportFormedAt;
 
-    var aCRFcollection = CRFs[clincalReportForm.formName].aCRFcollection;
+    var aCRFcollection = MetadataPrototype[clincalReportForm.formName].aCRFcollection;
     aCRFcollection.update(clinicalReportForm._id, {$set: {clinicalReportFormedAt: clinicalReportFormedAt}});
   },
   clinicalReportForm_edit: function(clinicalReportForm){
     // TODO: make clinicalReportForm_edit server-side?
   },
   approveClinicalReportForm: function(clinicalReportForm){
-    var aCRFcollection = CRFs[clincalReportForm.formName].aCRFcollection;
+    var aCRFcollection = MetadataPrototype[clincalReportForm.formName].aCRFcollection;
     if(isAdmin(Meteor.user())){
       var now = new Date();
       aCRFcollection.update(clinicalReportForm._id, {$set: {status: 2, clinicalReportFormedAt: now}});
@@ -881,7 +960,7 @@ Meteor.methods({
     }
   },
   unapproveClinicalReportForm: function(clinicalReportForm){
-    var aCRFcollection = CRFs[clincalReportForm.formName].aCRFcollection;
+    var aCRFcollection = MetadataPrototype[clincalReportForm.formName].aCRFcollection;
     if(isAdmin(Meteor.user())){
       aCRFcollection.update(clinicalReportForm._id, {$set: {status: 1}});
     }else{
@@ -889,7 +968,7 @@ Meteor.methods({
     }
   },
   clickedClinicalReportForm: function(clinicalReportForm, sessionId){
-    var aCRFcollection = CRFs[clincalReportForm.formName].aCRFcollection;
+    var aCRFcollection = MetadataPrototype[clincalReportForm.formName].aCRFcollection;
     // only let clients increment a clinicalReportForm's click counter once per session
     var click = {_id: clinicalReportForm._id, sessionId: sessionId};
     if(_.where(clickedaCRFcollection, click).length == 0){
@@ -912,7 +991,7 @@ Meteor.methods({
     aCRFcollection.remove(clinicalReportFormId);
   },
  getFormNames : function() {
-    return Object.keys(CRFs);
+    return Object.keys(MetadataPrototype);
  },
 
   getCurrentTime: function () {
