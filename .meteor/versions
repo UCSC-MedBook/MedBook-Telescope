@@ -14,11 +14,13 @@ autopublish@1.0.0
 autoupdate@1.1.1
 backbone@1.0.0
 base64@1.0.0
+benjaminrh:jquery-cookie@0.1.0
 binary-heap@1.0.0
 blaze-tools@1.0.0
 blaze@2.0.1
 boilerplate-generator@1.0.0
 callback-hook@1.0.0
+cfs:http-methods@0.0.24
 check@1.0.1
 chuangbo:marked@0.3.5
 cmather:handlebars-server@2.0.0
@@ -85,6 +87,7 @@ reactive-dict@1.0.3
 reactive-var@1.0.2
 reload@1.1.0
 retry@1.0.0
+revolutionlabs:user-login-state@1.0.1
 routepolicy@1.0.1
 sacha:juice@0.1.0
 sacha:spin@2.0.4
