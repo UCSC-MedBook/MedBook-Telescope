@@ -42,9 +42,12 @@ Meteor.startup(function () {
 
      UserLoginState.onLogin = function () {
         console.log("User logged in");
-        $.cookie("MedBookPermissions", "galaxy",  {
+        Meteor.call("MedBookPermissions", function(err, perms) {
+
+           $.cookie("MedBookPermissions", perms,  {
                expires : 10           //expires in 10 days
             });
+        });
      };
 
      UserLoginState.onLogout = function () {
