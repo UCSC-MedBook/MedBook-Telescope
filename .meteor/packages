@@ -63,7 +63,6 @@ telescope-email
 telescope-i18n
 telescope-kadira
 telescope-lib
-telescope-module-embedly
 telescope-module-share
 telescope-newsletter
 telescope-notifications
@@ -79,4 +78,10 @@ meteor-platform
 cfs:http-methods
 revolutionlabs:user-login-state
 benjaminrh:jquery-cookie
+telescope-gateway
+telescope-module-embedly
+vsivsi:file-collection
+coffeescript
+pfafman:font-awesome-4
+mrt:numeral
 
