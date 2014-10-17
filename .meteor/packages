@@ -73,7 +73,6 @@ telescope-tags
 telescope-theme-base
 telescope-update-prompt
 tmeasday:crypto-md5
-telescope-theme-medbook
 meteor-platform
 cfs:http-methods
 revolutionlabs:user-login-state
@@ -84,4 +83,5 @@ vsivsi:file-collection
 coffeescript
 pfafman:font-awesome-4
 mrt:numeral
+telescope-theme-medbook
 

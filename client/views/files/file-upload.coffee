@@ -23,12 +23,15 @@ Meteor.startup () ->
       # Keep track of its progress reactivaly in a session variable
       Session.set file.uniqueIdentifier, 0
       # Create a new file in the file collection to upload to
-      FileUploadCollection.insert({
+      metadata = {
             _id: file.uniqueIdentifier    # This is the ID resumable will use
             filename: file.fileName
             contentType: file.file.type
-         },
-         (err, _id) ->
+      }
+      $post = $(".post");
+      if $post?
+          metadata.postId = $post.attr("id")
+      FileUploadCollection.insert(metadata, (err, _id) ->
             if err
                console.warn "File creation failed!", err
                return
@@ -81,10 +84,14 @@ Template.FileUploadCollection.events
 
 Template.FileUploadCollection.dataEntries = () ->
   # Reactively populate the table
-  vv = { 'metadata._Resumable': { $exists: false }, 'metadata._auth.owner': Meteor.userId() , 'postId' : {$exists: false } }
-  ll= FileUploadCollection.find(vv).fetch();
-  console.log "dataEntries", ll, Meteor.userId(), vv
-  FileUploadCollection.find(vv).fetch();
+  post = $(".post");
+  if post?
+      query = {postId: post.attr("id")}
+  else
+      query = { 'metadata._Resumable': { $exists: false }, 'metadata._auth.owner': Meteor.userId() , 'postId' : {$exists: false } }
+  ll= FileUploadCollection.find(query).fetch();
+  console.log "dataEntries",  query,  ll
+  FileUploadCollection.find(query)
 
 Template.FileUploadCollection.shortFilename = (w = 16) ->
   # shorten this.filename, w
