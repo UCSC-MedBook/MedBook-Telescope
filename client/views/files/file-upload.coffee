@@ -5,7 +5,7 @@
 
 Meteor.startup () ->
 
-   Template.collTest.rendered = () ->
+   Template.FileUploadCollection.rendered = () ->
       # This assigns a file drop zone to the "file table"
       FileUploadCollection.resumable.assignDrop $(".fileDrop")
 
@@ -73,46 +73,46 @@ shorten = (name, w = 16) ->
   else
      name
 
-Template.collTest.events
+Template.FileUploadCollection.events
   # Wire up the event to remove a file by clicking the `X`
   'click .del-file': (e, t) ->
      # Just the remove method does it all
      FileUploadCollection.remove {_id: this._id}
 
-Template.collTest.dataEntries = () ->
+Template.FileUploadCollection.dataEntries = () ->
   # Reactively populate the table
   vv = { 'metadata._Resumable': { $exists: false }, 'metadata._auth.owner': Meteor.userId() , 'postId' : {$exists: false } }
   ll= FileUploadCollection.find(vv).fetch();
   console.log "dataEntries", ll, Meteor.userId(), vv
   FileUploadCollection.find(vv).fetch();
 
-Template.collTest.shortFilename = (w = 16) ->
+Template.FileUploadCollection.shortFilename = (w = 16) ->
   # shorten this.filename, w
   this.filename
 
-Template.collTest.owner = () ->
+Template.FileUploadCollection.owner = () ->
   this.metadata?._auth?.owner
 
-Template.collTest.id = () ->
+Template.FileUploadCollection.id = () ->
   "#{this._id}"
 
-Template.collTest.link = () ->
+Template.FileUploadCollection.link = () ->
   return FileUploadCollection.baseURL + "/" + this.md5
 
-Template.collTest.uploadStatus = () ->
+Template.FileUploadCollection.uploadStatus = () ->
   percent = Session.get "#{this._id}"
   unless percent?
      "Processing..."
   else
      "Uploading..."
 
-Template.collTest.formattedLength = () ->
+Template.FileUploadCollection.formattedLength = () ->
   numeral(this.length).format('0.0b')
 
-Template.collTest.uploadProgress = () ->
+Template.FileUploadCollection.uploadProgress = () ->
   percent = Session.get "#{this._id}"
 
-Template.collTest.isImage = () ->
+Template.FileUploadCollection.isImage = () ->
   types =
      'image/jpeg': true
      'image/png': true
@@ -120,11 +120,11 @@ Template.collTest.isImage = () ->
      'image/tiff': true
   types[this.contentType]?
 
-Template.collTest.loginToken = () ->
+Template.FileUploadCollection.loginToken = () ->
   Meteor.userId()
   Accounts._storedLoginToken()
 
-Template.collTest.userId = () ->
+Template.FileUploadCollection.userId = () ->
   Meteor.userId()
 
 getUploadedFiles = (properties) ->
