@@ -110,7 +110,8 @@ Template[getTemplate('post_submit')].events({
         return currentFunction(result);
     }, properties);
 
-    // console.log(properties)
+    properties.files = _.map($(".fileid"), function (f) { return $(f).val()});
+    console.log("POSTING", properties.files, properties)
 
     // ------------------------------ Insert ------------------------------ //
     if (properties) {
@@ -126,7 +127,6 @@ Template[getTemplate('post_submit')].events({
           if(post.status === STATUS_PENDING)
             throwError('Thanks, your post is awaiting approval.');
           Router.go('/posts/'+post._id);
-          Session.set("PostID", post._id);
         }
       });
     } else {

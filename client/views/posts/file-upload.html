@@ -32,21 +32,11 @@
       <tbody>
       {{#each dataEntries}}
         <tr>
-          <td>
+          <td >
+            <input class="fileid" type="hidden" value="{{id}}" >
             <a href="{{link}}?download=true">{{shortFilename 16}}</a>
             <button type="button" class="close del-file" aria-hidden="true">
-
-                <span class="icon-stack">
-                  <i class="icon-check-empty icon-stack-base"></i>
-                  <i class="icon-twitter"></i>
-                </span>
-
-
-
-                <!--
-                <i title="revert" class="fa fa-undo"></i>
-                -->
-
+                <i title="undo add" class="fa fa-undo"></i>
             </button>
           </td>
           <!--
