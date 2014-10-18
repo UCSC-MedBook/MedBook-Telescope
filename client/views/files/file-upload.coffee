@@ -28,9 +28,11 @@ Meteor.startup () ->
             filename: file.fileName
             contentType: file.file.type
       }
-      $post = $(".post");
-      if $post?
-          metadata.postId = $post.attr("id")
+      $postfolder = $(".postfolder");
+      if $postfolder? and $postfolder.length == 1
+          metadata.postId = $postfolder.data("postid");
+          console.log "adding with postId", metadata.postId
+
       FileUploadCollection.insert(metadata, (err, _id) ->
             if err
                console.warn "File creation failed!", err
@@ -85,10 +87,10 @@ Template.FileUploadCollection.events
 Template.FileUploadCollection.dataEntries = () ->
   # Reactively populate the table
   post = $(".post");
-  if post?
-      query = {postId: post.attr("id")}
+  if post? and post.length > 1
+      query = {postId: this._id}
   else
-      query = { 'metadata._Resumable': { $exists: false }, 'metadata._auth.owner': Meteor.userId() , 'postId' : {$exists: false } }
+      query = { 'metadata._Resumable': { $exists: false }, 'postId' : {$exists: false } }
   ll= FileUploadCollection.find(query).fetch();
   console.log "dataEntries",  query,  ll
   FileUploadCollection.find(query)

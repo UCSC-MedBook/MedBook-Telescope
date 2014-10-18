@@ -37,8 +37,8 @@ Meteor.startup () ->
         true
      read: (userId, file) ->
         # Only owners can GET file data
-        if file.metadata?._auth?.owner and userId isnt file.metadata._auth.owner
-           return false
+        #if file.metadata?._auth?.owner and userId isnt file.metadata._auth.owner
+        #   return false
         true
      write: (userId, file, fields) -> # This is for the HTTP REST interfaces PUT/POST
         # All client file metadata updates are denied, implement Methods for that...
