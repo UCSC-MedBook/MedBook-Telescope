@@ -1,6 +1,5 @@
 Meteor.methods({
   post: function(post){
-    console.log("post:", 1, post);
     var title = cleanUp(post.title),
         body = post.body,
         userId = this.userId,
@@ -11,7 +10,6 @@ Meteor.methods({
         maxPostsPer24Hours = Math.abs(parseInt(getSetting('maxPostsPerDay', 30))),
         postId = '';
     
-    console.log("post:", 2, post);
 
     // ------------------------------ Checks ------------------------------ //
 
@@ -34,7 +32,6 @@ Meteor.methods({
         throw new Meteor.Error(603, i18n.t('This link has already been posted'), postWithSameLink._id);
       }
     }
-    console.log("post:", 3, post);
 
     // ------------------------------ Checks ------------------------------ //
 
@@ -56,7 +53,6 @@ Meteor.methods({
 
     // ------------------------------ Properties ------------------------------ //
 
-    console.log("post:", 4, post);
     // Basic Properties
     properties = {
       title: title,
@@ -75,7 +71,6 @@ Meteor.methods({
     if(isAdmin(Meteor.user()) && !!post.userId){ // only let admins post as other users
       properties.userId = post.userId; 
     }
-    console.log("post:", 5, post);
 
     // Status
     var defaultPostStatus = getSetting('requirePostsApproval') ? STATUS_PENDING : STATUS_APPROVED;
@@ -88,7 +83,6 @@ Meteor.methods({
     // CreatedAt
     properties.createdAt = new Date();
 
-    console.log("post:", 6, post);
     // PostedAt
     if(properties.status == 2){ // only set postedAt if post is approved
       if(isAdmin(Meteor.user()) && !!post.postedAt){ // if user is admin and a custom postDate has been set
@@ -110,13 +104,11 @@ Meteor.methods({
     // ------------------------------ Insert ------------------------------ //
 
     // console.log(post)
-    console.log("post:", 7, post);
     post._id = Posts.insert(post);
 
     if (post.files && post.files.length >0)
        for (var i = 0; i < post.files.length; i++)  {
           var fid = post.files[i];
-          console.log("UFR", i, fid, post._id);
           FileUploadCollection.update({"_id": new Meteor.Collection.ObjectID(fid)}, { "$set" : { "postId" : post._id } })
        }
 
@@ -128,7 +120,6 @@ Meteor.methods({
     }, post);
 
     // ------------------------------ Post-Insert ------------------------------ //
-    console.log("post:", 8, post);
 
     // increment posts count
     Meteor.users.update({_id: userId}, {$inc: {postCount: 1}});
@@ -136,7 +127,6 @@ Meteor.methods({
     var postAuthor =  Meteor.users.findOne(post.userId);
 
     Meteor.call('upvotePost', post, postAuthor);
-    console.log("post:", 9, post);
 
     return post;
   },
