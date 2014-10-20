@@ -6,8 +6,8 @@ accounts-password@1.0.3
 accounts-twitter@1.0.2
 accounts-ui-unstyled@1.1.3
 accounts-ui@1.1.2
-aldeed:autoform@3.2.0
-aldeed:collection2@2.2.0
+aldeed:autoform@2.0.2
+aldeed:collection2@2.1.0
 aldeed:simple-schema@1.0.3
 application-configuration@1.0.3
 autopublish@1.0.1
@@ -23,7 +23,7 @@ callback-hook@1.0.1
 cfs:http-methods@0.0.24
 check@1.0.2
 chuangbo:marked@0.3.5
-cmather:handlebars-server@2.0.0
+cmather:handlebars-server@0.2.0
 coffeescript@1.0.4
 ctl-helper@1.0.4
 ctl@1.0.2
@@ -79,7 +79,7 @@ oauth2@1.1.1
 oauth@1.1.1
 observe-sequence@1.0.3
 ordered-dict@1.0.1
-percolatestudio:synced-cron@1.0.0
+percolatestudio:synced-cron@0.3.0
 pfafman:font-awesome-4@4.2.0_1
 rajit:bootstrap3-datepicker@1.3.1
 random@1.0.1

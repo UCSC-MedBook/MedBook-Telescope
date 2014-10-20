@@ -38,7 +38,7 @@
     ],
     [
       "cmather:handlebars-server",
-      "2.0.0"
+      "0.2.0"
     ],
     [
       "ddp",
@@ -146,7 +146,7 @@
     ],
     [
       "percolatestudio:synced-cron",
-      "1.0.0"
+      "0.3.0"
     ],
     [
       "random",

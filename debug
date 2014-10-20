@@ -3,5 +3,3 @@ export ROOT_URL=http://su2c-dev.ucsc.edu:10000/tel/
 
 echo run node-inspector --web-port=5123
 NODE_OPTIONS='--debug' meteor --port 10008 run 
-
-
