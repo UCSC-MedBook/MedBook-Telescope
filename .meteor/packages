@@ -76,10 +76,11 @@ meteor-platform
 cfs:http-methods
 revolutionlabs:user-login-state
 benjaminrh:jquery-cookie
-telescope-gateway
 telescope-module-embedly
 coffeescript
 pfafman:font-awesome-4
 mrt:numeral
 telescope-theme-medbook
 vsivsi:file-collection
+telescope-gateway
+
