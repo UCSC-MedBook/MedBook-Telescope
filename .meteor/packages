@@ -34,7 +34,6 @@ chuangbo:marked
 cmather:handlebars-server
 djedi:sanitize-html
 email
-insecure
 iron:router
 jquery
 matb33:collection-hooks
@@ -83,4 +82,5 @@ mrt:numeral
 telescope-theme-medbook
 vsivsi:file-collection
 telescope-gateway
+insecure
 
