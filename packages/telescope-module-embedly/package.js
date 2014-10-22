@@ -15,7 +15,7 @@ Package.onUse( function(api) {
 
   api.use(['templating'], ['client']);
 
-  api.add_files(['lib/both/embedly.js'], ['client', 'server']);
+  api.add_files(['lib/embedly.js'], ['client', 'server']);
 
   api.add_files(['lib/server/get_embedly_data.js'], ['server']);
 

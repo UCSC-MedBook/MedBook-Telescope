@@ -110,8 +110,7 @@ Template[getTemplate('post_submit')].events({
         return currentFunction(result);
     }, properties);
 
-    properties.files = _.map($(".fileid"), function (f) { return $(f).val()});
-    console.log("POSTING", properties.files, properties)
+    // console.log(properties)
 
     // ------------------------------ Insert ------------------------------ //
     if (properties) {

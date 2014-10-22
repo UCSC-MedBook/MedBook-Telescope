@@ -5,82 +5,75 @@
 
 # Meteor Packages
 
+standard-app-packages
+backbone
+accounts-base
+accounts-password
+accounts-twitter
+spiderable
+email
+accounts-facebook
 
 # Atmosphere Packages
 
+iron:router@0.9.1
 
+meteorhacks:fast-render@1.0.0
+meteorhacks:subs-manager@1.1.0
+meteorhacks:npm
 
-
-
-
-# Telescope Packages
-
-
-
-
-# Accounts Templates
-accounts-base
-accounts-facebook
-accounts-google
-accounts-password
-accounts-twitter
-accounts-ui
 aldeed:autoform
 aldeed:collection2
 aldeed:simple-schema
-autopublish
-backbone
-chuangbo:marked
-cmather:handlebars-server
-djedi:sanitize-html
-email
-iron:router
-jquery
-matb33:collection-hooks
-meteorhacks:fast-render
-meteorhacks:npm
-meteorhacks:subs-manager
-mrt:cookies
-mrt:jquery-hotkeys
-mrt:jquery-ui
-mrt:jquery-ui-bootstrap
-mrt:mailchimp
-mrt:moment
-npm-container
-percolatestudio:synced-cron
-rajit:bootstrap3-datepicker
-sacha:juice
-sacha:spin
-service-configuration
-spiderable
-splendido:accounts-templates-unstyled
-standard-app-packages
-telescope-api
-telescope-base
-telescope-daily
-telescope-email
-telescope-i18n
-telescope-lib
-telescope-module-share
-telescope-newsletter
-telescope-notifications
-telescope-rss
-telescope-search
-telescope-static-pages
-telescope-tags
-telescope-theme-base
-telescope-update-prompt
-tmeasday:crypto-md5
-meteor-platform
-cfs:http-methods
-revolutionlabs:user-login-state
-benjaminrh:jquery-cookie
-telescope-module-embedly
-coffeescript
-pfafman:font-awesome-4
-mrt:numeral
-telescope-theme-medbook
-vsivsi:file-collection
-telescope-gateway
-insecure
 
+mrt:jquery-hotkeys@0.0.1
+mrt:cookies@0.3.0
+mrt:moment
+mrt:mailchimp
+
+cmather:handlebars-server@0.2.0
+sacha:spin@2.0.4
+sacha:juice
+chuangbo:marked@0.3.3
+percolatestudio:synced-cron@0.1.1
+npm-container
+matb33:collection-hooks
+djedi:sanitize-html
+rajit:bootstrap3-datepicker
+bengott:avatar
+jparker:gravatar
+
+# Telescope Packages
+
+telescope-tags
+telescope-base
+telescope-search
+telescope-lib
+telescope-rss
+telescope-api
+telescope-module-share
+telescope-theme-base
+telescope-theme-hubble
+telescope-daily
+telescope-newsletter
+telescope-module-embedly
+telescope-i18n
+telescope-email
+telescope-update-prompt
+telescope-notifications
+telescope-kadira
+telescope-update-prompt
+telescope-notifications
+telescope-kadira
+
+# Accounts Templates
+service-configuration
+accounts-ui
+splendido:accounts-templates-unstyled
+telescope-theme-medbook
+benjaminrh:jquery-cookie
+jquery
+coffeescript
+insecure
+autopublish
+vsivsi:file-collection
