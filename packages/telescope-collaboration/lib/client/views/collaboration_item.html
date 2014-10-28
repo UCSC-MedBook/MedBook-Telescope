@@ -1,0 +1,29 @@
+<template name="collaborationItem">
+
+    <li>
+
+        <a class="" href="#" onclick="$(this).next().toggle()">{{name}}</a>
+
+        <div hidden>
+            {{>quickForm id="collaborationUpdate" collection="Collaboration"  fields=fieldOrder  schema="collaborationSchema" type="method" meteormethod="updateCollaboration" doc=currentDoc }}
+
+
+            <!--
+
+            <form>
+                <div class="control-group inline">
+                    <a class="button submit edit-link" href="#">Save</a>
+
+                    <div class="controls">
+                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="Name"/>
+                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="Name"/>
+                    </div>
+
+                </div>
+            </form>
+-->
+        </div>
+
+
+    </li>
+</template>
