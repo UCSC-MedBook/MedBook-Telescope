@@ -2,26 +2,30 @@
 
     <li>
 
-        <a class="" href="#" onclick="$(this).next().toggle()">{{name}}</a>
+        <a class="" href="#" onclick="$(this).next().toggle();">{{name}}</a>
 
-        <div hidden>
-            {{>quickForm id="collaborationUpdate" collection="Collaboration"  fields=fieldOrder  schema="collaborationSchema" type="method" meteormethod="updateCollaboration" doc=currentDoc }}
+        <div class="collaboration-item" hidden>
 
-
-            <!--
 
             <form>
                 <div class="control-group inline">
                     <a class="button submit edit-link" href="#">Save</a>
 
                     <div class="controls">
-                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="Name"/>
-                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="Name"/>
+                        <label>Collaboration Name</label>
+                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="A collaboration needs a simple name"/>
+                        <label>Description</label>
+                        <input class="collaboration-description" id="description_{{_id}}" type="text" value="{{description}}"  placeholder="Fill indescription"/>
+                        <label>Collaborators</label>
+                        <input class="collaboration-collaborators" name="collaborators" id="collaborators_{{_id}}" type="text"  placeholder="Add collaborators"/>
+
+                        <label>Administrators</label>
+                        <input class="collaboration-adminstrators" name="adminstrators" id="adminstrators_{{_id}}" type="text"  placeholder="Add adminstrators"/>
                     </div>
 
                 </div>
             </form>
--->
+
         </div>
 
 

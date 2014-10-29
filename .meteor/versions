@@ -5,7 +5,8 @@ accounts-password@1.0.3
 accounts-twitter@1.0.2
 accounts-ui-unstyled@1.1.3
 accounts-ui@1.1.2
-aldeed:autoform@3.2.0
+alanning:roles@1.2.13
+aldeed:autoform@4.0.0-rc7
 aldeed:collection2@2.2.0
 aldeed:simple-schema@1.0.3
 application-configuration@1.0.3
@@ -53,6 +54,7 @@ json@1.0.1
 kestanous:herald-email@0.2.1
 kestanous:herald@0.6.0
 less@1.0.10
+linto:fontawesome@1.0.1
 livedata@1.0.11
 localstorage@1.0.1
 logging@1.0.4
@@ -71,6 +73,7 @@ mongo-livedata@1.0.6
 mongo@1.0.7
 mrt:cookies@0.3.0
 mrt:jquery-hotkeys@0.0.1
+mrt:jquery-ui@1.9.2
 mrt:mailchimp@0.4.0
 mrt:moment@2.8.1
 mrt:numeral@1.5.3
@@ -91,6 +94,7 @@ retry@1.0.1
 routepolicy@1.0.2
 sacha:juice@0.1.0
 sacha:spin@2.0.4
+sebdah:autocompletion@0.2.0
 service-configuration@1.0.2
 session@1.0.3
 sha@1.0.1
@@ -105,6 +109,7 @@ standard-app-packages@1.0.3
 stylus@1.0.5
 telescope-api@0.0.0
 telescope-base@0.0.0
+telescope-collaboration@0.0.0
 telescope-daily@0.0.0
 telescope-email@0.2.9
 telescope-i18n@0.0.0

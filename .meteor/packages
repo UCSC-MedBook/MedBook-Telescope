@@ -22,7 +22,6 @@ meteorhacks:fast-render@1.0.0
 meteorhacks:subs-manager@1.1.0
 meteorhacks:npm
 
-aldeed:autoform
 aldeed:collection2
 aldeed:simple-schema
 
@@ -78,4 +77,9 @@ insecure
 autopublish
 vsivsi:file-collection
 mrt:numeral
+aldeed:autoform@4.0.0-rc7
+alanning:roles
+telescope-collaboration
+sebdah:autocompletion
+linto:fontawesome
 

@@ -1,6 +1,4 @@
 
-
-
 collaborationSchema = new SimpleSchema({
    _id: {
       type: String,
@@ -44,7 +42,7 @@ Collaboration.attachSchema(collaborationSchema);
 // collaboration post list parameters
 viewParameters.collaboration = function (terms) {
   return {
-    find: {'collaboration.slug': terms.collaboration},
+    find: {'collaborations': terms.collaboration},
     options: {sort: {sticky: -1, score: -1}}
   };
 }
@@ -61,10 +59,10 @@ primaryNav.push('collaborationMenu');
 // push "collaboration" property to addToPostSchema, so that it's later added to postSchema
 addToPostSchema.push(
   {
-    propertyName: 'collaboration',
+    propertyName: 'collaborations',
     propertySchema: {
-      type: [collaborationSchema],
-      optional: true
+      optional: true,
+      type: [String]
     }
   }
 );
@@ -89,11 +87,11 @@ Meteor.startup(function () {
   });
 
   Meteor.methods({
-    collaboration: function(collaboration){
+    createCollaborationMethod: function(collaboration){
       console.log(collaboration)
       if (!Meteor.user() || !isAdmin(Meteor.user()))
         throw new Meteor.Error(i18n.t('You need to login and be an admin to add a new collaboration.'));
-      var collaborationId=Collaboration.insert(collaboration);
+      Collaboration.insert(collaboration);
       return collaboration.name;
     }
   });
@@ -102,17 +100,5 @@ Meteor.startup(function () {
 getCollaborationUrl = function(slug){
   return getSiteUrl()+'collaboration/'+slug;
 };
-
-
-Meteor.methods({
-    updateCollaboration : function(bundle) {
-        var id = bundle._id;
-        delete bundle["_id"]
-        var ret = Collaboration.update({_id:id}, {$set: bundle});
-        console.log("upsert", ret);
-        return ret;
-    }
-});
-
 
 

@@ -43,6 +43,32 @@ Template[getTemplate('post_submit')].rendered = function(){
 };
 
 Template[getTemplate('post_submit')].events({
+
+'keyup #new_category' : function(e, i) {
+    if (event.which === 27 || event.which === 13) {
+        e.preventDefault();
+        e.target.blur();
+
+        var name = e.currentTarget.value;
+        var slug = slugify(name);
+
+        Meteor.call('category', {
+            name: name,
+            order: 1,
+            slug: slug
+        }, function(error, categoryName) {
+              if (error){
+                  console.log(error);
+                  throwError(error.reason);
+                  clearSeenErrors();
+              } else {
+                  e.currentTarget.value = "";
+                  // throwError('New category "'+categoryName+'" created');
+              }
+        });
+    }
+  },
+
   'change input[name=status]': function (e, i) {
     Session.set('currentPostStatus', e.currentTarget.value);
   },
