@@ -1,0 +1,17 @@
+
+.collaboration-item {
+    left: 10px;
+    background-color: lightsteelblue;
+    border: 2px solid black;
+
+
+}
+
+
+.collaboration-item  label {
+    font-size: 14px;
+}
+
+.collaboration-item div {
+    margin: 10px;
+}

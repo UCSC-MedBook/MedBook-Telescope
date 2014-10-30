@@ -1,4 +1,4 @@
-<template name="collaboration">
+<template name="collaborationGrid">
   <div class="grid-small grid-module dialog admin">
     <h2>Categories</h2>
     <form class="form-block">
@@ -11,10 +11,17 @@
         <input type="submit" class="button" value="Submit" />
       </div>
     </form>
-    <ul>
-      {{#each collaboration}}
-        {{> UI.dynamic template=collaborationItem}}
-      {{/each}}
-    </ul>
   </div>
+  <div class="collaboration posts list">
+    {{#each collaboration}}
+      {{> collaborationGridElement}}
+    {{/each}}
+  </div>
+</template>
+
+
+<template name="collaborationGridElement">
+    <div class="collaboration post">
+      {{name}}
+    </div>
 </template>

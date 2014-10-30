@@ -27,7 +27,7 @@ Meteor.startup(function () {
 
     // Collaboration Admin
 
-    this.route('collaboration');
+    this.route('collaboration', { template: "collaborationGrid"} );
 
   });
 

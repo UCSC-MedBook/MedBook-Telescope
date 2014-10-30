@@ -16,6 +16,7 @@ Package.onUse(function (api) {
 
   api.add_files([
     'lib/client/routes.js',
+    'lib/client/views/collaboration.css',
     'lib/client/views/collaboration.html',
     'lib/client/views/collaboration.js',
     'lib/client/views/collaboration_item.css',

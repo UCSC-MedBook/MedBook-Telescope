@@ -1,6 +1,6 @@
 Meteor.startup( 
     function () {
-        Template[getTemplate('collaboration')].helpers({
+        Template[getTemplate('collaborationGrid')].helpers({
             collaboration: function(){
                 return Collaboration.find({}, {sort: {order: 1, name: 1}});
             },
@@ -9,7 +9,7 @@ Meteor.startup(
             }
         });
 
-        Template[getTemplate('collaboration')].events( {
+        Template[getTemplate('collaborationGrid')].events( {
             'click input[type=submit]': 
                 function(e) {
                     e.preventDefault();
