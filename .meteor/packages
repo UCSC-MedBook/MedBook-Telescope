@@ -44,7 +44,6 @@ jparker:gravatar
 
 # Telescope Packages
 
-telescope-tags
 telescope-base
 telescope-search
 telescope-lib
@@ -82,4 +81,3 @@ alanning:roles
 telescope-collaboration
 sebdah:autocompletion
 linto:fontawesome
-

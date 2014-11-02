@@ -12,6 +12,10 @@ Template[getTemplate('posts_list')].helpers({
       return posts;
     }
   },
+  collaborationName: function() {
+    var col = Collaboration.findOne({slug: Session.get("collaborationSlug")});
+    return col.name;
+  },
   postsLoadMore: function () {
     return getTemplate('postsLoadMore');
   },

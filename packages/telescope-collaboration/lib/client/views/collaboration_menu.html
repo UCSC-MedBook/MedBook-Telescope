@@ -4,6 +4,8 @@
       <a class="collaboration dropdown-top-level" href="/">{{i18n "Collaborations"}}</a>
       <div class="dropdown-menu">
         <ul role="menu" aria-labelledby="dLabel">
+            <li><a class="dropdown-sub-level" href="/collaboration/">All Collaborations</a></li>
+
           {{# each collaboration}}
             <li><a class="dropdown-sub-level" href="{{collaborationLink}}">{{name}}</a></li>
           {{/each}}

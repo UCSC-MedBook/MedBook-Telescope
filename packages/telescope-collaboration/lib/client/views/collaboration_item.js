@@ -1,27 +1,26 @@
 Meteor.startup(function () {
 
-  Template[getTemplate('collaborationItem')].rendered = function() {
+  Template[getTemplate('AddCollaboration')].rendered = function() {
     AutoCompletion.init('input[name="collaborators"]')
   };
 
 
-  Template[getTemplate('collaborationItem')].events({
-    'click .edit-link': function(e, instance){
+
+  Template[getTemplate('AddCollaboration')].events({
+    'click .edit-link': function(e, tmpl) {
       e.preventDefault();
-      var collaborationId = instance.data._id;
-      var name = $('#name_'+collaborationId).val();
-      var collaborations = $('#order_'+collaborationId).val().split();
-      var slug = slugify(name);
-      if(name){
-        Collaboration.update(collaborationId,{ $set: {name: name, slug: slug, collaborations: collaborations}});
-      }else{
-        Collaboration.remove(collaborationId);
-      }
-      Meteor.call('updateCollaborationInPosts', collaborationId, function(error) {
-        if (error) {
-          throwError(error.reason);
-        }
-      });
+
+      var pack = {
+          name : (tmpl.find(".collaboration-name").value),
+          description : (tmpl.find(".collaboration-description").value),
+          collaborators : (tmpl.find(".collaboration-collaborators").value),
+          administrators : (tmpl.find(".collaboration-administrators").value),
+          invitations :    (tmpl.find(".collaboration-invitations").value),
+          applications : []
+      };
+
+      createCollaboration(pack);
+      tmpl.find("form").reset();
     },
 
 
@@ -36,7 +35,7 @@ Meteor.startup(function () {
     }
   });
 
-  Template[getTemplate('collaborationItem')].helpers({
+  Template[getTemplate('AddCollaboration')].helpers({
     currentDoc: function () {
       var col = Collaboration.findOne({_id: this._id});
       console.log("currentDoc", col);

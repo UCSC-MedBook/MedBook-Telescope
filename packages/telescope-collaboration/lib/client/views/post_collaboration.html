@@ -1,6 +1,6 @@
 <template name="postCollaboration">
   {{#each collaborations}}
-      <a href="/collaboration/{{this}}" class="post-collaboration">{{this}}</a>
+      <a href="{{collaborationLink}}" class="post-collaboration">{{collaborationName}}</a>
   {{/each}}
   <a onclick="$(this).next().toggle()">
   <i class="fa fa-plus-square"></i>

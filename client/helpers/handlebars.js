@@ -30,10 +30,12 @@ function collaborator() {
   var user = Meteor.user();
   if (user == null) return false;
 
-  var cat = Categories.findOne({slug: Session.get("categorySlug")});
-  if (cat == null || cat.collaborations == null)
-    return canPost(Meteor.user())
-  return  _.intersect(cat.collaborations, user.collborations).length > 0
+  var col = Collaboration.findOne({slug: Session.get("collaborationSlug")});
+  if (col == null || col.collaborations == null)
+    return canPost(Meteor.user());
+  if (user.indexOf(col.collaborators) >= 0)
+    return true;
+  return  _.intersect(col.collaborators, user.collaborations).length > 0
 }
 
 UI.registerHelper('canPost', function() {

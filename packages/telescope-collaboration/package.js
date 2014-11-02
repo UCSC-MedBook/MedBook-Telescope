@@ -16,19 +16,22 @@ Package.onUse(function (api) {
 
   api.add_files([
     'lib/client/routes.js',
+      /*
     'lib/client/views/collaboration.css',
     'lib/client/views/collaboration.html',
     'lib/client/views/collaboration.js',
+    */
     'lib/client/views/collaboration_item.css',
     'lib/client/views/collaboration_item.html',
     'lib/client/views/collaboration_item.js',
     'lib/client/views/collaboration_menu.html',
     'lib/client/views/collaboration_menu.js',
     'lib/client/views/post_collaboration.html',
-    'lib/client/views/post_collaboration.css'
+    'lib/client/views/post_collaboration.css',
+    'lib/client/views/post_collaboration.js'
   ], ['client']);
 
-  api.add_files(['lib/server/publications.js'], ['server']);
+  api.add_files(['lib/server/publications.js', 'lib/server/methods.js'], ['server']);
  
-  api.export(['preloadSubscriptions', 'adminNav', 'Collaboration', 'createCollaboration', 'collaborationSchema', 'addToPostSchema', 'primaryNav', 'postModules']);
+  api.export(['addCollaborator', 'Collaboration', 'createCollaboration', 'collaborationSchema']);
 });

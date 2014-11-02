@@ -1,33 +1,31 @@
-<template name="collaborationItem">
+<template name="AddCollaboration">
+    <h3>Add Collaboration</h3>
 
-    <li>
+    <div class="collaboration-item" >
+        <form>
+            <div class="control-group inline">
+                <a class="button submit edit-link" href="#">Save</a>
 
-        <a class="" href="#" onclick="$(this).next().toggle();">{{name}}</a>
+                <div class="controls">
+                    <label class="collaboration-label" >Collaboration Name</label>
+                    <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="A collaboration needs a simple name"/>
+                    <label class="collaboration-label">Description</label>
+                    <input class="collaboration-description" id="description_{{_id}}" type="text" value="{{description}}"  placeholder="Fill in description"/>
+                    <label class="collaboration-label">Collaborators</label>
+                    <input class="collaboration-collaborators" name="collaborators" id="collaborators_{{_id}}" type="text"  placeholder="Add collaborators"/>
 
-        <div class="collaboration-item" hidden>
+                    <label class="collaboration-label">Administrators</label>
+                    <input class="collaboration-administrators" name="adminstrators" id="adminstrators_{{_id}}" type="text"  placeholder="Add adminstrators"/>
 
 
-            <form>
-                <div class="control-group inline">
-                    <a class="button submit edit-link" href="#">Save</a>
+                    <label class="collaboration-label">Invite</label>
+                    <input class="collaboration-invitations" name="invitations" id="invitations_{{_id}}" type="text"  placeholder="invite collaborators"/>
 
-                    <div class="controls">
-                        <label>Collaboration Name</label>
-                        <input class="collaboration-name" id="name_{{_id}}" type="text" value="{{name}}"  placeholder="A collaboration needs a simple name"/>
-                        <label>Description</label>
-                        <input class="collaboration-description" id="description_{{_id}}" type="text" value="{{description}}"  placeholder="Fill indescription"/>
-                        <label>Collaborators</label>
-                        <input class="collaboration-collaborators" name="collaborators" id="collaborators_{{_id}}" type="text"  placeholder="Add collaborators"/>
 
-                        <label>Administrators</label>
-                        <input class="collaboration-adminstrators" name="adminstrators" id="adminstrators_{{_id}}" type="text"  placeholder="Add adminstrators"/>
-                    </div>
 
                 </div>
-            </form>
 
-        </div>
-
-
-    </li>
+            </div>
+        </form>
+    </div>
 </template>

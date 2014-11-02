@@ -33,10 +33,10 @@ collaborationSchema = new SimpleSchema({
 });
 
 Collaboration = new Meteor.Collection("collaboration", {
-  schema: collaborationSchema
+ // schema: collaborationSchema
 });
 
-Collaboration.attachSchema(collaborationSchema);
+// Collaboration.attachSchema(collaborationSchema);
 
 
 // collaboration post list parameters
@@ -86,15 +86,6 @@ Meteor.startup(function () {
   , remove: isAdminById
   });
 
-  Meteor.methods({
-    createCollaborationMethod: function(collaboration){
-      console.log(collaboration)
-      if (!Meteor.user() || !isAdmin(Meteor.user()))
-        throw new Meteor.Error(i18n.t('You need to login and be an admin to add a new collaboration.'));
-      Collaboration.insert(collaboration);
-      return collaboration.name;
-    }
-  });
 });
 
 getCollaborationUrl = function(slug){
