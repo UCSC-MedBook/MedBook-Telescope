@@ -70,3 +70,15 @@ Template[getTemplate('nav')].events({
     }
   }
 });
+
+showCollaboration = function() {
+  $("#showCollaboration").show().css({position:"absolute", top:100, left: 350});
+  $(".overlay").css({"background-color": "rgba(0,0,0,0.5)"}).show().click(hideAddCollaboration)
+  $(".overlay").append("#showCollaboration");
+  $("#showCollaboration input").focus()
+}
+
+hideAddCollaboration = function() {
+  $("#showCollaboration").hide();
+  $(".overlay").css({"background-color": ""}).hide().off(hideAddCollaboration);
+}

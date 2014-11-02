@@ -1,7 +1,11 @@
 <template name="posts_list">
   {{> UI.dynamic template=postsListIncoming data=incoming}}
-    <h3 class="collaborationGridTitle">Browse {{collaborationName}} Collaboration</h3>
 
+  {{#if collaborationName}}
+    <h3 class="collaborationGridTitle">Browse {{collaborationName}} Collaboration</h3>
+  {{else}}
+    <h3 class="collaborationGridTitle">Browse Recent Posts</h3>
+  {{/if}}
     <div class="posts-wrapper grid grid-module">
 
       <div class="posts list">

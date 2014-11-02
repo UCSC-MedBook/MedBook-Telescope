@@ -49,7 +49,7 @@ viewParameters.collaboration = function (terms) {
 
 // push "collaboration" modules to postHeading
 postHeading.push({
-  template: 'postCollaboration',
+  template: 'collaborationTagList',
   order: 3
 });
   

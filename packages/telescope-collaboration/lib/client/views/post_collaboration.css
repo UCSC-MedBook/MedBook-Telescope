@@ -12,7 +12,21 @@
     text-transform: uppercase;
     font-weight: normal;
     vertical-align: middle; }
+
 .post-collaboration:hover {
     background: #DD3416;
     color: white;
 }
+
+.popupControl {
+    border: 3px ridge lightsteelblue;
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px #888888;
+    padding: 10px;
+
+}
+
+.popupControl input {
+    width: 100%;
+}
+

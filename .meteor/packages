@@ -72,8 +72,6 @@ telescope-theme-medbook
 benjaminrh:jquery-cookie
 jquery
 coffeescript
-insecure
-autopublish
 vsivsi:file-collection
 mrt:numeral
 aldeed:autoform@4.0.0-rc7

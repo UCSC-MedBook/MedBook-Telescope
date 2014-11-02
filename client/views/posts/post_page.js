@@ -18,3 +18,16 @@ Template[getTemplate('post_page')].rendered = function(){
   if(this.data) // XXX
     document.title = $(".post-title").text();
 };
+
+
+var hidden = true;
+
+$(document).on("click", "#expander", function() {
+  if (hidden) {
+    $(".well").slideUp();
+  }
+  else {
+    $(".well").slideDown();
+  }
+  hidden = !hidden;
+});

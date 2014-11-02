@@ -27,25 +27,37 @@ createCollaboration = function (pack) {
       });
 }
 
+show = function(id){
+ var $elem =  $("#"+id);
+  $elem.show();
+  $elem.find("input").focus();
+}
+
 addCollaborator = function(e, i) {
+
+  var collaboration_name = e.currentTarget.value;
   if (event.which === 27 || event.which === 13) {
     e.preventDefault();
     e.target.blur();
 
-    var collaboration_name = e.currentTarget.value;
     var post_id = this._id;
-
-    addCollaborator
-
-    var exists = Collaboration.findOne({name: collaboration_name});
-    if (!exists) {
-      if (confirm("The " + collaboration_name + " does not exist, do you want to create the "+ collaboration_name +" collaboration?"))
-        createCollaboration(collaboration_name);
-      else
-        return;
+    var existsCol, existsUser;
+    if (collaboration_name.indexOf("@") >= 0) {
+      existsUser = Meteor.users.findOne({email: collaboration_name});
+  } else {
+      existsCol = Collaboration.findOne({name: collaboration_name});
+      existsUser = Meteor.users.findOne({username: collaboration_name});
+    }
+    if (!(existsCol || existsUser)) {
+      if (confirm("The " + collaboration_name + " does not exist, do you want to create the " + collaboration_name + " collaboration?")) {
+        showCollaboration();
+      }
+      return;
     }
 
-      Meteor.call('addCollaboratorToCollaboration', {
+
+
+    Meteor.call('addCollaboratorToCollaboration', {
         collaboration_name: collaboration_name,
         post_id: post_id
       }, function(error, categoryName) {
@@ -55,28 +67,31 @@ addCollaborator = function(e, i) {
           clearSeenErrors();
         } else {
           e.currentTarget.value = "";
-          // throwError('New category "'+categoryName+'" created');
+          // throwError('New category "'+categoryName+'" created')
         }
       });
     } else {
-      AutoCompletion.autocomplete({                                                                                    // 29
-        element: '#addCollaborators',       // DOM identifier for the element                                // 30
-        collection: Collaboration,              // MeteorJS collection object                                          // 31
-        field: 'name',                    // Document field name to search for                                         // 32
-        limit: 100,                         // Max number of elements to show                                          // 33
-        sort: { name: 1 }});              // Sort object to filter results with                                        // 34
-      //filter: { 'gender': 'female' }; // Additional filtering                                                      // 35
+      console.log("collaboration_name", collaboration_name)
     }
 };
 
 
 Meteor.startup(function () {
-  Template[getTemplate('postCollaboration')].helpers({
+  Template[getTemplate('collaborationTagList')].helpers({
 
+    collaborations: function() {
+      if ('collaborations' in this)
+        return this.collaborations;
+      var cs = Session.get("collaborationSlug");
+      if (cs && cs.length > 0)
+        return [cs];
+      return [];
+    },
 
     collaborationLink: function(){
       console.log("postCollabration collaborationLink", this)
       var col = Collaboration.findOne({name: String(this)});
+      if (col == null) return "";
       return "/collaboration/"+col.slug;
     },
     collaborationName: function(){
@@ -86,12 +101,15 @@ Meteor.startup(function () {
 
   });
 
-  Template[getTemplate('postCollaboration')].rendered = function() {                                                   // 3
-    AutoCompletion.init('input[id="addCollaborators"]')                                                                 // 4
-  };                                                                                                                   // 5
+  Template[getTemplate('collaborationTagList')].rendered = function() {
+    var users = Meteor.users.find({},{fields: {username:1}}).fetch();
+    var cols = Collaboration.find({},{fields: {name:1}}).fetch();
+    var names = users.map(function(f){return f.username}).concat(cols.map(function(f){return f.name}));
+    $('input[id="addCollaborators"]').autocomplete({source: names.filter(function(f){return f && f.length > 0})});
+  };
 
 
-  Template[getTemplate('postCollaboration')].events({
+  Template[getTemplate('collaborationTagList')].events({
     'keyup input[id="addCollaborators"]' : addCollaborator
 
   });

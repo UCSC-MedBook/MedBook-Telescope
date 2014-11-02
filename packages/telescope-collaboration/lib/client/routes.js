@@ -1,5 +1,6 @@
 preloadSubscriptions.push('collaboration');
 
+
 adminNav.push({
   route: 'collaboration',
   label: 'Collaboration'
@@ -7,7 +8,7 @@ adminNav.push({
 
 Meteor.startup(function () {
 
-  Router.onBeforeAction(Router._filters.isAdmin, {only: ['collaboration']});
+  // Router.onBeforeAction(Router._filters.isAdmin, {only: ['collaboration']});
 
   PostsCollaborationController = PostsListController.extend({
     view: 'collaboration'

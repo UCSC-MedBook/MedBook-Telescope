@@ -13,6 +13,16 @@
         <label class="control-label">{{i18n "Body"}}</label>
         <div class="controls" id="editor"><textarea id="body" value="" class="input-xlarge"></textarea></div>
       </div>
+
+        <div class="control-group">
+            <label class="control-label">{{i18n "Collaboration"}}</label>
+            <div class="controls">
+                {{>collaborationTagList show=true}}
+
+            </div>
+        </div>
+
+<!--
       {{#if categoriesEnabled}}
       <div class="control-group">
         <label class="control-label">{{i18n "Category"}}</label>
@@ -26,6 +36,8 @@
         </div>
       </div>
       {{/if}}
+      -->
+      <!--
       {{#if isAdmin}}
         <div class="control-group">
           <label class="control-label">{{i18n "Sticky?"}}</label>
@@ -69,6 +81,7 @@
           <p class="help-block">Leave blank to post at current time.</p>
         </div>
       {{/if}}
+      -->
       <div class="form-actions">
         <input type="submit" class="button" value="{{i18n "Submit"}}" />
       </div>

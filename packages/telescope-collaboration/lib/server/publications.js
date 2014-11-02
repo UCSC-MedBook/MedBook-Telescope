@@ -5,6 +5,8 @@ Meteor.publish('collaboration', function() {
   return [];
 });
 
+
+
 addToPostSchema.push(
     {
         propertyName: 'collaborations',

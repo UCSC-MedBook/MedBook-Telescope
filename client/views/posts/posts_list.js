@@ -13,8 +13,13 @@ Template[getTemplate('posts_list')].helpers({
     }
   },
   collaborationName: function() {
-    var col = Collaboration.findOne({slug: Session.get("collaborationSlug")});
-    return col.name;
+    var slug = Session.get("collaborationSlug")
+    if (slug  && slug.length > 0) {
+      var col = Collaboration.findOne({slug: slug});
+      if (col)
+        return col.name;
+    }
+    return null;
   },
   postsLoadMore: function () {
     return getTemplate('postsLoadMore');

@@ -1,9 +1,24 @@
-<template name="postCollaboration">
+<template name="collaborationTagList">
+
+
   {{#each collaborations}}
       <a href="{{collaborationLink}}" class="post-collaboration">{{collaborationName}}</a>
   {{/each}}
-  <a onclick="$(this).next().toggle()">
-  <i class="fa fa-plus-square"></i>
+
+
+
+  {{#if show}}
+  <div class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
+    <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
+      <button onclick="$('#addCollaboratorsPoppup').hide()">Done</button>
+  </div>
+  {{else}}
+  <a onclick="show('addCollaboratorsPoppup')">
+      <i class="fa fa-plus-square"></i>
+      <div hidden class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
+          <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
+          <button onclick="$('#addCollaboratorsPoppup').hide()">Done</button>
+      </div>
   </a>
-    <input hidden data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
+  {{/if}}
 </template>

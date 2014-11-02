@@ -16,11 +16,9 @@ Package.onUse(function (api) {
 
   api.add_files([
     'lib/client/routes.js',
-      /*
     'lib/client/views/collaboration.css',
     'lib/client/views/collaboration.html',
     'lib/client/views/collaboration.js',
-    */
     'lib/client/views/collaboration_item.css',
     'lib/client/views/collaboration_item.html',
     'lib/client/views/collaboration_item.js',
@@ -33,5 +31,5 @@ Package.onUse(function (api) {
 
   api.add_files(['lib/server/publications.js', 'lib/server/methods.js'], ['server']);
  
-  api.export(['addCollaborator', 'Collaboration', 'createCollaboration', 'collaborationSchema']);
+  api.export(['addCollaborator', 'Collaboration', 'show', 'createCollaboration', 'collaborationSchema']);
 });
