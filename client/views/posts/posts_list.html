@@ -6,13 +6,15 @@
   {{else}}
     <h3 class="collaborationGridTitle">Browse Recent Posts</h3>
   {{/if}}
-    <div class="posts-wrapper grid grid-module">
+  {{#if posts}}}
+      <div class="posts-wrapper grid grid-module">
+        {{#each posts}}
+          {{> UI.dynamic template=post_item}}
+        {{/each}}
+      </div>
+  {{else}}
+      <h3 class="collaborationGridTitle">No Posts Yet</h3>
 
-      <div class="posts list">
-      {{#each posts}}
-        {{> UI.dynamic template=post_item}}
-      {{/each}}
-    </div>
-  </div>
+  {{/if}}
   {{> UI.dynamic template=postsLoadMore}}
 </template>

@@ -28,7 +28,12 @@ Meteor.startup(function () {
 
     // Collaboration Admin
 
-    this.route('collaboration', { template: "collaborationGrid"} );
+    this.route('collaboration', {
+        template: "collaborationGrid",
+        onAfterAction: function() {
+          Session.set('collaborationSlug', "");
+        }
+    } );
 
   });
 
