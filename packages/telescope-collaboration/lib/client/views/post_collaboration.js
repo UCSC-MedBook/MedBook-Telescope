@@ -27,11 +27,20 @@ createCollaboration = function (pack) {
       });
 }
 
+
+
 show = function(id){
  var $elem =  $("#"+id);
   $elem.show();
   $elem.find("input").focus();
 }
+
+hide = function(evt, id){
+  alert("hide")
+  evt.preventDefault();
+  var $elem =  $("#"+id);
+  $elem.hide();
+};
 
 addCollaborator = function(e, i) {
 
@@ -110,7 +119,10 @@ Meteor.startup(function () {
 
 
   Template[getTemplate('collaborationTagList')].events({
-    'keyup input[id="addCollaborators"]' : addCollaborator
+    'keyup input[id="addCollaborators"]' : addCollaborator,
 
+    'click  button[id="addCollaboratorsDone"]':function(event, template) {
+      $('#addCollaboratorsPoppup').hide();
+     }
   });
 });

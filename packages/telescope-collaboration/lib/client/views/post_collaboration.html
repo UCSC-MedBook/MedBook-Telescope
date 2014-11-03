@@ -10,14 +10,14 @@
   {{#if show}}
   <div class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
     <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
-      <button onclick="$('#addCollaboratorsPoppup').hide()">Done</button>
+      <button class="addCollaboratorsDone">Done</button>
   </div>
   {{else}}
   <a onclick="show('addCollaboratorsPoppup')">
       <i class="fa fa-plus-square"></i>
       <div hidden class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
           <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
-          <button onclick="$('#addCollaboratorsPoppup').hide()">Done</button>
+          <button id="addCollaboratorsDone">Done</button>
       </div>
   </a>
   {{/if}}
