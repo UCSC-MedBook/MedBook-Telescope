@@ -79,3 +79,8 @@ alanning:roles
 telescope-collaboration
 sebdah:autocompletion
 linto:fontawesome
+cfs:gridfs
+insecure
+cfs:http-methods
+autopublish
+

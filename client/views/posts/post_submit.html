@@ -1,10 +1,16 @@
 <template name="post_submit">
   <div class="grid submit">
     <form class="grid-block form-horizontal">
-      <div class="control-group">
-        <label class="control-label">{{i18n "URL"}}</label>
-        <div class="controls"><input id="url" type="text" value="" /></div>
-      </div>
+
+        <div class="control-group">
+            <label class="control-label">{{i18n "Collaboration"}}</label>
+            <div class="controls">
+                {{>collaborationTagList show=true}}
+
+            </div>
+        </div>
+
+
       <div class="control-group">
         <label class="control-label">{{i18n "Title"}}</label>
         <div class="controls"><input id="title" type="text" value="" /><a href="#" class="get-title-link inline-link">{{i18n "Suggest title"}}</a></div>
@@ -15,12 +21,10 @@
       </div>
 
         <div class="control-group">
-            <label class="control-label">{{i18n "Collaboration"}}</label>
-            <div class="controls">
-                {{>collaborationTagList show=true}}
-
-            </div>
+            <label class="control-label">{{i18n "URL"}}</label>
+            <div class="controls"><input id="url" type="text" value="" /></div>
         </div>
+
 
 <!--
       {{#if categoriesEnabled}}
