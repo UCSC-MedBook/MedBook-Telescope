@@ -121,7 +121,12 @@ Meteor.startup(function () {
   Template[getTemplate('collaborationTagList')].events({
     'keyup input[id="addCollaborators"]' : addCollaborator,
 
-    'click  button[id="addCollaboratorsDone"]':function(event, template) {
+    'submit #addCollaboratorsForm' : function(e, t) {
+        e.preventDefault();
+    },
+
+    'click  #addCollaboratorsDone':function(event, template) {
+      alert("hide");
       $('#addCollaboratorsPoppup').hide();
      }
   });

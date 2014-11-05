@@ -2,13 +2,12 @@ Package.describe({summary: "MedBook Collaboration   package"});
 
 Package.onUse(function (api) {
 
-  api.use(['telescope-lib', 'telescope-base', 'aldeed:simple-schema'], ['client', 'server']);
+  api.use(['telescope-lib', 'telescope-base', 'aldeed:simple-schema', 'telescope-theme-hubble'], ['client', 'server']);
 
   api.use([
     'jquery',
     'underscore',
     'iron:router',
-    'alanning:roles',
     'templating'
   ], 'client');
 

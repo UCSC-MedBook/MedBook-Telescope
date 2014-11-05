@@ -7,18 +7,13 @@
 
 
 
-  {{#if show}}
-  <div class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
-    <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
-      <button class="addCollaboratorsDone">Done</button>
-  </div>
-  {{else}}
+  <form id="addCollaboratorsForm" type="button">
   <a onclick="show('addCollaboratorsPoppup')">
-      <i class="fa fa-plus-square"></i>
+      <i class="fa fa-plus-square">add collaboration</i>
       <div hidden class="popupControl" id="addCollaboratorsPoppup" ><h4>Type in names of users or other collaborations:</h4>
           <input  data-_id={{_id}} id="addCollaborators"  name="addCollaborators"  type="text" placeHolder="collaborator(s)"/>
           <button id="addCollaboratorsDone">Done</button>
       </div>
   </a>
-  {{/if}}
+  </form>
 </template>
