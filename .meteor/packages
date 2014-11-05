@@ -22,7 +22,6 @@ meteorhacks:fast-render@1.0.0
 meteorhacks:subs-manager@1.1.0
 meteorhacks:npm
 
-aldeed:autoform
 aldeed:collection2
 aldeed:simple-schema
 
@@ -75,4 +74,9 @@ telescope-tags
 telescope-theme-medbook
 pfafman:font-awesome-4
 cfs:http-methods
+jquery
+natestrauser:select2
+aldeed:autoform@4.0.0-rc9
+aldeed:autoform-select2
+chriswessels:glyphicons-halflings
 

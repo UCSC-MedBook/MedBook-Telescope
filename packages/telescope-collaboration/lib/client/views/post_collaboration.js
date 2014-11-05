@@ -43,21 +43,24 @@ hide = function(evt, id){
 };
 
 addCollaborator = function(e, i) {
-
   var collaboration_name = e.currentTarget.value;
   if (event.which === 27 || event.which === 13) {
     e.preventDefault();
     e.target.blur();
 
-    var post_id = this._id;
-    var existsCol, existsUser;
-    if (collaboration_name.indexOf("@") >= 0) {
-      existsUser = Meteor.users.findOne({email: collaboration_name});
-  } else {
+  }
+}
+addOneCollaborator = function() {
+   var post_id = this._id;
+   var existsCol, existsUser;
+   if (collaboration_name.indexOf("@") >= 0) {
+     existsUser = Meteor.users.findOne({email: collaboration_name});
+   } else {
       existsCol = Collaboration.findOne({name: collaboration_name});
       existsUser = Meteor.users.findOne({username: collaboration_name});
-    }
-    if (!(existsCol || existsUser)) {
+   }
+   var collaboration_name = $('#addCollaborators').val();
+   if (!(existsCol || existsUser)) {
       if (confirm("The " + collaboration_name + " does not exist, do you want to create the " + collaboration_name + " collaboration?")) {
         showCollaboration();
       }
@@ -65,11 +68,9 @@ addCollaborator = function(e, i) {
     }
 
 
-
-    Meteor.call('addCollaboratorToCollaboration', {
-        collaboration_name: collaboration_name,
-        post_id: post_id
-      }, function(error, categoryName) {
+   if (post_id) 
+       Meteor.call('addCollaboratorToCollaboration', { collaboration_name: collaboration_name, post_id: post_id }, 
+         function(error, categoryName) {
         if (error){
           console.log(error);
           throwError(error.reason);
@@ -79,9 +80,8 @@ addCollaborator = function(e, i) {
           // throwError('New category "'+categoryName+'" created')
         }
       });
-    } else {
-      console.log("collaboration_name", collaboration_name)
-    }
+   else 
+       Session.set("CollaboratorsTemp", Session.get("CollaboratorsTemp").push(collaboration_name));
 };
 
 
@@ -110,16 +110,17 @@ Meteor.startup(function () {
 
   });
 
-  Template[getTemplate('collaborationTagList')].rendered = function() {
-    var users = Meteor.users.find({},{fields: {username:1}}).fetch();
-    var cols = Collaboration.find({},{fields: {name:1}}).fetch();
-    var names = users.map(function(f){return f.username}).concat(cols.map(function(f){return f.name}));
-    $('input[id="addCollaborators"]').autocomplete({source: names.filter(function(f){return f && f.length > 0})});
-  };
-
 
   Template[getTemplate('collaborationTagList')].events({
-    'keyup input[id="addCollaborators"]' : addCollaborator,
+    // 'keyup input[id="addCollaborators"]' : addCollaborator,
+    'focus #addCollaboratorsForm' : function(e, t) {
+        var users = Meteor.users.find({},{fields: {username:1}}).fetch();
+        var cols = Collaboration.find({},{fields: {name:1}}).fetch();
+        var names = users.map(function(f){return f.username}).concat(cols.map(function(f){return f.name}));
+        names = names.filter(function(f){return f && f.length > 0});
+        console.log("names", names, $('#addCollaborators').length)
+        $('#addCollaborators').autocomplete({source: names});
+    },
 
     'submit #addCollaboratorsForm' : function(e, t) {
         e.preventDefault();

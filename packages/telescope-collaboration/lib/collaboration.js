@@ -6,27 +6,27 @@ collaborationSchema = new SimpleSchema({
     },
     slug: {
       type: String,
-        optional: true
     },
     name: {
       type: String,
-        optional: true
     },
 
     description: {
         type: String,
-        optional: true
-    },
-    users: {
-        type:String,
-        optional: true
     },
     collaborators: {
-        type:String,
-        optional: true
+        type:[String],
+        /*
+        autoform: {
+            type: "select2",
+            afFieldInput: {
+                multiple: true
+            }
+        }
+        */
     },
     administrators: {
-        type:String,
+        type:[String],
         optional: true
     }
 
