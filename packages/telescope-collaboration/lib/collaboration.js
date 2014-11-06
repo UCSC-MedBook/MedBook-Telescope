@@ -42,7 +42,7 @@ Collaboration = new Meteor.Collection("collaboration", {
 // collaboration post list parameters
 viewParameters.collaboration = function (terms) {
   return {
-    find: {'collaborations': terms.collaboration},
+    find: {'collaboration': terms.collaboration},
     options: {sort: {sticky: -1, score: -1}}
   };
 }
@@ -59,7 +59,7 @@ primaryNav.push('collaborationMenu');
 // push "collaboration" property to addToPostSchema, so that it's later added to postSchema
 addToPostSchema.push(
   {
-    propertyName: 'collaborations',
+    propertyName: 'collaboration',
     propertySchema: {
       optional: true,
       type: [String]

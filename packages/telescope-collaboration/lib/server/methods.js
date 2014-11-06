@@ -29,7 +29,7 @@ function MedBookPost(post) {
     Meteor.users.update({_id: userId}, {$inc: {postCount: 1}});
     var postAuthor =  Meteor.users.findOne(post.userId);
     Meteor.call('upvotePost', post, postAuthor);
-    return post;
+    return post._id;
 }
 
 
@@ -68,24 +68,36 @@ Meteor.startup(function () {
 var querystring =  Npm.require("querystring")
   HTTP.methods({
     medbookPost: function(data){
-        var json = querystring.parse(String(data));
-        var post = JSON.parse(json.json);
+        var qs = querystring.parse(String(data));
 
-        console.log("medBookPost:", post)
-        console.log("userId", this.userId);
-        return;
+        var user = Meteor.users.findOne({
+            $or: [
+                {'services.resume.loginTokens.hashedToken': Accounts._hashLoginToken(qs.token)},
+                {'services.resume.loginTokens.token': qs.token}
+            ]
+        });
 
-        post = data;
+        if (user == null) {
+            this.setStatusCode(401); // Unauthorized
+            return { state: "failed", reason: "token not found" }
+        }
+        this.setUserId(user._id)
 
-        var user  = Meteor.users.findOne();
+        var post = JSON.parse(qs.json);
         post.userId   = user._id;
         post.sticky   = false;
         post.status   = STATUS_APPROVED;
         post.postedAt = new Date();
+        post.createdAt = post.postedAt;
+        post.commentsCount = 0;
+        post.downvotes = 0;
+        post.inactive = false;
+        post.score = 0;
+        post.upvotes = 0;
         console.log("post", post)
 
-        MedBookPost(post);
-       return { state: "success"}
+        var _id = MedBookPost(post);
+        return { state: "success", _id: _id}
      }
   });
 });

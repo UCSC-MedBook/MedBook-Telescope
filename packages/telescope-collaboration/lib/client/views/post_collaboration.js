@@ -88,9 +88,9 @@ addOneCollaborator = function() {
 Meteor.startup(function () {
   Template[getTemplate('collaborationTagList')].helpers({
 
-    collaborations: function() {
-      if ('collaborations' in this)
-        return this.collaborations;
+    collaboration: function() {
+      if ('collaboration' in this)
+        return this.collaboration;
       var cs = Session.get("collaborationSlug");
       if (cs && cs.length > 0)
         return [cs];

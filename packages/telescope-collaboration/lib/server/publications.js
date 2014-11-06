@@ -1,6 +1,8 @@
 Meteor.publish('collaboration', function() {
   if(canViewById(this.userId)){
-    return Collaboration.find();
+      var f = Collaboration.find();
+      console.log("collaboration found ", f.count())
+      return f;
   }
   return [];
 });
@@ -9,7 +11,7 @@ Meteor.publish('collaboration', function() {
 
 addToPostSchema.push(
     {
-        propertyName: 'collaborations',
+        propertyName: 'collaboration',
         propertySchema: {
             type: [String],
             optional: true
@@ -21,7 +23,7 @@ addToPostSchema.push(
 Meteor.methods({
   addCollaboratorToCollaboration : function(params) {
       console.log("addCollaboratorToCollaboration method")
-    var ret = Posts.update({_id: params.post_id}, {$addToSet: {collaborations: params.collaboration_name} }, function foo(err) {
+    var ret = Posts.update({_id: params.post_id}, {$addToSet: {collaboration: params.collaboration_name} }, function foo(err) {
           console.log("addCollaboratorToCollaboration Posts update params,err=", params, err);
         }
     );
