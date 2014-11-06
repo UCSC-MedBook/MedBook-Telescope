@@ -31,11 +31,11 @@ function collaborator() {
   if (user == null) return false;
 
   var col = Collaboration.findOne({slug: Session.get("collaborationSlug")});
-  if (col == null || col.collaborations == null)
+  if (col == null || col.collaboration == null)
     return canPost(Meteor.user());
   if (user.indexOf(col.collaborators) >= 0)
     return true;
-  return  _.intersect(col.collaborators, user.collaborations).length > 0
+  return  _.intersect(col.collaborators, user.collaboration).length > 0
 }
 
 UI.registerHelper('canPost', function() {
