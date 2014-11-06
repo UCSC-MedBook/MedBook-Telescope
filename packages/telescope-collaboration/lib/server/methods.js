@@ -64,15 +64,28 @@ Meteor.startup(function () {
           },
 
   });
+
+var querystring =  Npm.require("querystring")
   HTTP.methods({
-    medbookPost: function(post){
+    medbookPost: function(data){
+        var json = querystring.parse(String(data));
+        var post = JSON.parse(json.json);
+
+        console.log("medBookPost:", post)
+        console.log("userId", this.userId);
+        return;
+
+        post = data;
+
         var user  = Meteor.users.findOne();
         post.userId   = user._id;
         post.sticky   = false;
         post.status   = STATUS_APPROVED;
-        post.postedAt = new Date(), 
+        post.postedAt = new Date();
+        console.log("post", post)
+
         MedBookPost(post);
-       return "MedBook post";
+       return { state: "success"}
      }
   });
 });

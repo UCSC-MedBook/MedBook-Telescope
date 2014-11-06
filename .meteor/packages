@@ -73,10 +73,11 @@ telescope-collaboration
 telescope-tags
 telescope-theme-medbook
 pfafman:font-awesome-4
-cfs:http-methods
 jquery
 natestrauser:select2
 aldeed:autoform@4.0.0-rc9
 aldeed:autoform-select2
 chriswessels:glyphicons-halflings
+http
+cfs:http-methods
 
