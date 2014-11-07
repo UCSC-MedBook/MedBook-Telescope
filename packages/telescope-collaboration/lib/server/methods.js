@@ -26,7 +26,7 @@ function MedBookPost(post) {
     // ------------------------------ Post-Insert ------------------------------ //
 
     // increment posts count
-    Meteor.users.update({_id: userId}, {$inc: {postCount: 1}});
+    Meteor.users.update({_id: this.userId}, {$inc: {postCount: 1}});
     var postAuthor =  Meteor.users.findOne(post.userId);
     Meteor.call('upvotePost', post, postAuthor);
     return post._id;

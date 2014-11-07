@@ -57,10 +57,8 @@ telescope-newsletter
 telescope-module-embedly
 telescope-i18n
 telescope-email
-telescope-update-prompt
 telescope-notifications
 telescope-kadira
-telescope-update-prompt
 telescope-notifications
 telescope-kadira
 
@@ -80,4 +78,3 @@ aldeed:autoform-select2
 chriswessels:glyphicons-halflings
 http
 cfs:http-methods
-

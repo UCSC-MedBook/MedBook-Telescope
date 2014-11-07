@@ -36,7 +36,6 @@ show = function(id){
 }
 
 hide = function(evt, id){
-  alert("hide")
   evt.preventDefault();
   var $elem =  $("#"+id);
   $elem.hide();
