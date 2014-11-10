@@ -2,15 +2,15 @@
 
 Meteor.publish('postsList', function(terms) {
   if(canViewById(this.userId)){
-    var parameters = getPostsParameters(terms),
-        posts = Posts.find(parameters.find, parameters.options);
+    var parameters = getPostsParameters(terms);
+    var posts = Posts.find(parameters.find, parameters.options);
 
-    // console.log('//-------- Subscription Parameters:');
-    // console.log(parameters.find);
-    // console.log(parameters.options);
-    // console.log('Found '+posts.fetch().length+ ' posts:');
-    // posts.rewind();
-    // console.log(_.pluck(posts.fetch(), 'title'));
+    console.log('//-------- Subscription Parameters:');
+    console.log(parameters.find);
+    console.log(parameters.options);
+    console.log('Found '+posts.fetch().length+ ' posts:');
+    posts.rewind();
+    console.log(_.pluck(posts.fetch(), 'title'));
     return posts;
   }
   return [];
